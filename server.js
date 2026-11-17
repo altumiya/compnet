@@ -53,3 +53,49 @@ console.log(Buffer.from("₹", "utf8"));  //<Buffer e2 82 b9>
 // Once the data hits the router, the router says, "Okay, the data is inside the house, but who asked for it?
 // The phone, the smart TV, or the laptop?"
 // The router uses the MAC address to hand the webpage data to the exact physical device that requested it.
+
+// Unlike IPv4, IPv6 uses hexadecimal numbers separated by colons. uses 128 bits
+// e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+
+// The router uses a technology called NAT (Network Address Translation) 
+// to allow devices using private IPv4 addresses to share public IPv4 connectivity.
+
+// Why do we need subnet masks?
+// Suppose your laptop wants to communicate with:
+// 192.168.1.20
+// It checks whether the destination belongs to its local network.
+// If it does, the device can communicate directly over the local network.
+// If the destination belongs to another network, the computer generally sends the packet to its default gateway.
+
+// IP address = Device's network address.
+// Subnet mask = Identifies network boundaries.
+// Default gateway = Next-hop device for traffic leaving the local network.
+
+// A Record stands for Address Record. 
+// e.g. junglewildsafari.com to 203.0.113.10
+
+// CNAME stands for Canonical Name. e.g. www.junglewildsafari.com to junglewildsafari.com
+
+// MX stands for Mail Exchange.It specifies which mail servers receive email for a domain.
+
+// DNS Lookup: The browser checks its local cache, then asks a Recursive Resolver to find the IP.
+// The Resolver queries the Root Server, then the TLD (.com) Server, and finally the Authoritative Server.
+// The Authoritative Server returns the exact IP address so the browser can connect to the website.
+
+// DNS (Domain Name System) translates domain names into IP addresses.
+
+// A CNAME (Canonical Name) record points one domain or subdomain (like www) to another.
+
+// The Authoritative DNS Server holds and provides the official, final DNS records for a domain.
+
+// An MX (Mail Exchanger) record directs email to a domain's mail hosting server.
+
+// If the IP is incorrect, visitors typing the domain will see an error or be sent to the wrong website.
+
+// 1. Domain name: The user types junglewildsafari.com into their browser.
+// 2. DNS resolver: The browser asks the ISP's resolver to find the IP address.
+// 3. Root server: The resolver asks the Root Server, which points it to the .com server.
+// 4. TLD server: The .com server points the resolver to the domain's Authoritative server.
+// 5. Authoritative server: The Authoritative server holds the official records and provides the exact IP.
+// 6. IP address: The resolver receives the IP (e.g., 203.0.113.10) and hands it to the browser.
+// 7. Connect: The browser uses that IP address to connect directly to the web server and load the site.
