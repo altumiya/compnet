@@ -99,3 +99,32 @@ console.log(Buffer.from("₹", "utf8"));  //<Buffer e2 82 b9>
 // 5. Authoritative server: The Authoritative server holds the official records and provides the exact IP.
 // 6. IP address: The resolver receives the IP (e.g., 203.0.113.10) and hands it to the browser.
 // 7. Connect: The browser uses that IP address to connect directly to the web server and load the site.
+
+// TCP(transfer controll protocol) is the reliable one: 
+// it establishes a connection first, 
+// double-checks that every packet arrives in order, 
+// and retransmits anything that gets lost. 
+// It’s perfect for downloading files or loading webpages where accuracy matters.
+
+// UDP(user datagram protocol) is the fast one: 
+// it just sends the data without waiting for delivery receipts. 
+// If a packet drops, it just moves on. 
+// This low overhead makes it ideal for live gaming, video calls, and real-time streaming where speed beats perfect accuracy.
+
+// (Bonus point: The newest web standard, HTTP/3, actually uses UDP for speed 
+// but builds its own reliability on top of it!)
+
+// HTTP is stateless by default. Each request is treated independently.
+//  Applications can use cookies, sessions or tokens to maintain user identity across requests.
+
+// HTTP status code
+// | Category | Meaning |
+// |--------|--------|
+// | 1xx | Informational |
+// | 2xx | Success |
+// | 3xx | Redirection |
+// | 4xx | Client error |
+// | 5xx | Server error |
+
+// CORS is a browser security mechanism, not an authentication system. 
+// It does not replace JWT, authorization or server-side validation
