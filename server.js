@@ -128,3 +128,95 @@ console.log(Buffer.from("₹", "utf8"));  //<Buffer e2 82 b9>
 
 // CORS is a browser security mechanism, not an authentication system. 
 // It does not replace JWT, authorization or server-side validation
+
+/*
+=========================================
+NETWORKING & MERN STACK - QUICK NOTES
+=========================================
+
+1. HTTPS & TLS
+- HTTP: Plaintext data (no encryption).
+- HTTPS: HTTP + TLS (Transport Layer Security).
+- TLS provides:
+  * Encryption: Hides data in transit.
+  * Integrity: Detects data tampering.
+  * Authentication: Verifies server identity.
+- Example: Protects user booking data sent to your server.
+
+2. PORTS (Range: 0 - 65535)
+- IP Address = Building address | Port = Room/App number.
+- Common Ports:
+  * 20/21: FTP (Data/Control) | 22: SSH | 25: SMTP | 53: DNS
+  * 80: HTTP | 443: HTTPS
+  * 3000 / 4000: Common dev ports (e.g., Express)
+  * 27017: MongoDB default
+
+3. FIREWALL
+- Controls incoming/outgoing traffic using security rules (allow/block IPs & ports).
+- Example: Allow HTTPS (443) publicly, block MongoDB (27017) from public access.
+
+4. VPN (Virtual Private Network)
+- Creates an encrypted tunnel between your device and a VPN server.
+- Hides your real public IP and allows remote access to private networks.
+- Note: VPN does NOT replace HTTPS.
+
+5. MERN STACK FLOW
+- Dev Ports: React (5173), Admin (5175), Express (4000), MongoDB (27017).
+- Request Flow:
+  axios.get("http://localhost:4000/api/parks")
+  React -> Express (4000) -> MongoDB (27017) -> Express -> React.
+- Production: HTTPS enters on port 443 -> Reverse proxy forwards to Express.
+
+6. USEFUL COMMANDS & STATES
+- netstat -ano                         -> View all network connections
+- netstat -ano | findstr :4000         -> Check connections on port 4000
+- Test-NetConnection google.com -Port 443 -> Test TCP connection
+- curl.exe -I https://google.com       -> Check HTTP response headers
+- openssl s_client -connect google.com:443 -servername google.com -> Check TLS/SSL cert
+- States:
+  * LISTENING: App waiting for incoming connections.
+  * ESTABLISHED: Active TCP connection.
+
+/*
+=========================================
+TOP INTERVIEW QUESTIONS - SHORT ANSWERS
+=========================================
+
+1. What is HTTPS?
+-> Secure version of HTTP that uses TLS to encrypt data between the browser and server.
+
+2. What is TLS?
+-> Transport Layer Security; a protocol that provides encryption, data integrity, and server authentication.
+
+3. HTTP vs HTTPS?
+-> HTTP sends plaintext data (insecure, port 80). HTTPS sends encrypted data using TLS (secure, port 443).
+
+4. What is a port number?
+-> A number (0-65535) that identifies a specific application or service running on an IP address.
+
+5. Why does HTTPS use port 443?
+-> It is the standard default port reserved for secure web traffic, so browsers connect to it automatically without needing to specify it in the URL.
+
+6. Port 80 vs Port 443?
+-> Port 80 handles unencrypted HTTP traffic; Port 443 handles encrypted HTTPS traffic.
+
+7. What is a firewall?
+-> A security layer that filters incoming and outgoing network traffic based on rules (allowing or blocking specific IPs and ports).
+
+8. What is a VPN?
+-> Virtual Private Network; creates an encrypted tunnel between your device and a VPN server to hide your real IP and securely access private networks.
+
+9. Why should MongoDB not be publicly accessible?
+-> Exposing port 27017 to the public internet makes your database an easy target for unauthorized access, data theft, or ransomware attacks. Only your backend should talk to it.
+
+10. What happens when Express listens on port 4000?
+-> The OS binds port 4000 to your Express server (entering the LISTENING state), allowing it to accept, process, and respond to incoming HTTP requests sent to that port.
+*/
+/*
+8. 5 THINGS TO REMEMBER
+- HTTPS: Secure HTTP
+- TLS: Encryption, Integrity, Authentication
+- Ports: Identify specific apps/services
+- Firewall: Filters network traffic
+- VPN: Encrypted network tunnel
+*/
